@@ -1,0 +1,96 @@
+#include <cstdio>
+#include <algorithm>
+#include <vector>
+#include <ctime>
+using namespace std; 
+
+
+
+static int count1=0; // exchange count111
+
+
+//random generator 
+
+vector<char> randGenerator(int n){
+    vector<char> v;
+    srand(time(NULL));
+    for(int i=0;i<n;i++){
+        v.push_back((char)(rand()%n));
+    } 
+ 
+    return v;
+}
+
+
+// exchange sort
+void exchangesort(vector<char>& v, int n){
+	int i,j,temp;
+	for(i=0;i<=n-1;i++){
+		for(j=i+1;j<=n;j++){
+			if(v[i]>v[j]){
+				temp = v[i];
+				v[i]=v[j];
+				v[j] = temp;
+				count1++;
+			}
+		}
+	}
+}
+
+
+
+
+int main(){
+    clock_t start,end;
+    int n;// 숫자 갯수
+    printf("난수 생성 범위 (1~n) : ");
+    scanf("%d",&n);
+    vector<char> v = randGenerator(n);
+  
+    
+	  printf(" 배열 정렬 전 : ");
+  for(int i=0;i<n;i++){
+  	 printf("%2d ",v[i]);
+  }
+    
+    printf("\n\n");
+    
+	
+
+printf("\n\n");printf("\n\n");printf("\n\n");
+printf("\n\n");
+	
+
+    
+
+
+
+  
+
+
+ vector<char> vec = v;
+ start=clock();
+ exchangesort(vec,v.size()-1);
+ end = clock();
+ 
+    정렬결과 
+ for(int i=0;i<n;i++){
+  	 printf("%2c ",v3[i]);
+  }
+  printf("\n\n");
+  
+   printf("교환 정렬 수행시간 : %lf\n",(double)(end-start)/CLOCKS_PER_SEC);
+
+
+  
+     
+    
+    
+    
+    printf("비교 횟수 : %2d\n",count1);
+   
+    
+   
+
+    
+}
